@@ -4,7 +4,7 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
 const path = require("path");
-
+app.set('trust proxy', true);
 
 const errorMiddleware = require("./middleware/error");
 
@@ -34,7 +34,7 @@ app.use(express.static(path.join(__dirname, "build")));
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "build/index.html"));
 });
-app.set('trust proxy', '127.0.0.1');
+
 // Middleware for Errors
 app.use(errorMiddleware);
 
