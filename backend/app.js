@@ -4,6 +4,7 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
 const path = require("path");
+app.enable('trust proxy');
 
 const errorMiddleware = require("./middleware/error");
 
